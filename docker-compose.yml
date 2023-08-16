@@ -1,0 +1,28 @@
+version: '3'
+services:
+  #############################################################################################
+  ###                                       Frontend                                        ###
+  #############################################################################################
+  list-manager:
+    container_name: list-manager
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    networks:
+      - app-network
+    ports: 
+      - "8080:8080"
+    healthcheck:
+      test: curl --fail http://localhost:8080 || exit 1
+      interval: 20s
+      timeout: 30s
+      retries: 5
+      start_period: 20s
+
+#############################################################################################
+###                                       Network                                         ###
+#############################################################################################
+
+networks:
+  app-network:
+    driver: "bridge"
