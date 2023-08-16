@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react';
 import MainView from './views/MainView/MainView';
 import LoginPage from './views/LoginPage/LoginPage';
 import { hookContext } from './context';
+import NavBar from './components/NavBar/NavBar';
+import '@fontsource/roboto';
+import '@fontsource-variable/open-sans';
 
 const App = () => {
   const [userSessionToken, setUserSessionToken] = useState('');
@@ -16,7 +19,10 @@ const App = () => {
     <hookContext.Provider value={{userSessionToken, setUserSessionToken}}>
       {userSessionToken
       ? <MainView />
-      : <LoginPage />}
+      : <>
+          <NavBar />
+          <LoginPage />
+        </>}
     </hookContext.Provider>
   )
 }
