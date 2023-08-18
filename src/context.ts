@@ -1,7 +1,7 @@
 import { createContext } from "react";
 
-interface appContext {
+export type appContextType = {
   userSessionToken: string;
   setUserSessionToken: (arg: string) => void; 
 }
-export const hookContext = createContext<appContext | undefined>(undefined);
+export const hookContext = createContext<appContextType | undefined>(undefined);
