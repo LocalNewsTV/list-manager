@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import MainView from './views/MainView/MainView';
 import LoginPage from './views/LoginPage/LoginPage';
-import { hookContext } from './context';
-import NavBar from './components/NavBar/NavBar';
+import { userContext } from './context';
 import '@fontsource/roboto';
 import '@fontsource-variable/open-sans';
 import CONSTANTS from './constants';
@@ -17,8 +16,7 @@ const App = () => {
     })();
   },);
   return(
-    <hookContext.Provider value={{userSessionToken, setUserSessionToken}}>
-      <NavBar />
+    <userContext.Provider value={{userSessionToken, setUserSessionToken}}>
       {userSessionToken
       ? <MainView />
       : <>
@@ -26,7 +24,7 @@ const App = () => {
             setUserSessionToken={setUserSessionToken}
           />
         </>}
-    </hookContext.Provider>
+    </userContext.Provider>
   )
 }
 

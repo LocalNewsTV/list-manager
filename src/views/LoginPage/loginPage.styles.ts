@@ -41,3 +41,8 @@ export const ErrorP = styled.p`
   justify-content: center;
   color: #8b0000;
 `;
+
+export const StyledHeader = styled.h2`
+  margin-top: 1em;
+  font-weight: normal;
+`;

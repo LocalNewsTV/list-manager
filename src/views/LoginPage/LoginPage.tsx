@@ -1,6 +1,6 @@
 import { Button } from "@mui/material";
 import axios from 'axios';
-import { LoginContainer, ViewContainer, StyledForm, StyledTextField, ErrorP } from "./loginPage.styles";
+import { LoginContainer, ViewContainer, StyledForm, StyledTextField, ErrorP, StyledHeader } from "./loginPage.styles";
 import { useState, KeyboardEvent } from 'react';
 import CONSTANTS from "../../constants";
 
@@ -32,7 +32,6 @@ const LoginPage = ({ setUserSessionToken }: PropType) => {
           password: password,
         };
         const response = await axios.post(`${CONSTANTS.BACKEND_URL}/api/login`, payload);
-        console.log(response);
         if(response.status === 200 && response.data.token){
           setUserSessionToken(response.data.token);
           sessionStorage.setItem(CONSTANTS.SESSION, response.data.token);
@@ -71,7 +70,7 @@ const LoginPage = ({ setUserSessionToken }: PropType) => {
     <ViewContainer>
       <LoginContainer>
         <StyledForm>
-
+          <StyledHeader>{login ? "Login" : "Register"}</StyledHeader>
           <StyledTextField 
             label="Username"
             variant="standard"

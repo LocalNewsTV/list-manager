@@ -27,6 +27,7 @@ const NavBar = () => {
             src={menu? cancel : hamburger}
             alt="Menu Button"
           />
+          
           </Hamburger>
         </Banner>
       </MainCont>
