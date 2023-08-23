@@ -35,12 +35,10 @@ export const TaskContainer = styled.div`
 export const ListTabs = styled.div`
   width: 100%;
   display: flex;
-  overflow-x: auto;
   @media (min-width: ${mq.tablet}){
-    width: auto;
+    max-width: 125pt;
   }
 `;
-
 export const ListItemSection = styled.div`
   width: 100%;
   height: auto;
@@ -70,6 +68,7 @@ display: flex;
   padding: 0;
   height: auto;
   margin-bottom: 1em;
+  overflow-x: none;
   @media (min-width: ${mq.tablet}){
     flex-direction: column;
     overflow-x: auto;
@@ -79,9 +78,11 @@ display: flex;
 export const ListItem = styled.li<ExperienceProps>`
   display: flex;
   white-space: nowrap;
+  text-wrap: wrap;
+  overflow-x: auto;
   width: 100%;
   color: ${({selected}) => (selected ? 'darkred' : 'inherit')};
-  font-size: 11pt;
+  font-size: 10pt;
   align-items: center;
   padding: 0.25em 0.5em;
   height: 2em;

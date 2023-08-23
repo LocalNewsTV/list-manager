@@ -6,9 +6,6 @@ import styled from '@emotion/styled';
 import mq from '../../utilities/mq';
 import { navBar, sectionAccent } from '../../assets/theming';
 
-type HeaderProps = {
-  menu: boolean;
-}
 export const AccentSpan = styled.span`
   color: ${sectionAccent};
   font-size: 10pt;
@@ -21,26 +18,11 @@ export const Banner = styled.div`
   margin-left: 1em;
   justify-content: center;
   @media (min-width: ${mq.tablet}){
-    justify-content: flex-start;
+    justify-content: space-evenly;
     width: auto;
   }
 `;
 
-export const Hamburger = styled.button<HeaderProps>`
-  height: 27pt;
-  padding-top: 4pt;
-  width: 27pt;
-  color: #16161D;
-  border: none;
-  transform: rotate(${(props) => (props.menu ? 90 : 0)}deg);
-  transition: all 0.25s;
-  background: inherit;
-  margin: 0 1.5em 0 auto;
-  &:hover { cursor: pointer; }
-  @media(min-width: ${mq.tablet}){
-    display: none;
-  }
-`;
 
 export const HeaderCont = styled.header`
   position: fixed;
@@ -71,66 +53,13 @@ export const Logo = styled.img`
 
 export const MainCont = styled.div`
   display: flex;
-  width: 100%;
+  min-width: 100%;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   @media(min-width: ${mq.tablet}){
     flex-direction: row;
     width: auto;
-  }
-`;
-
-export const MenuImg = styled.img`
-  height: 100%;
-  width: 100%;
-  &:hover {
-    transform: scale(1.1);
-    cursor: pointer;
-  }
-`;
-
-export const NavCont = styled.ul<HeaderProps>`
-  display: ${(props) => props.menu ? 'flex' : 'none'};
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
-  @media (min-width: ${mq.tablet}){
-    display: flex;
-    width: auto;
-    flex-direction: row;
-    justify-content: left;
-  }
-`;
-export const NavItem = styled.li`
-  display: flex;
-  width: 65%;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  height: 30pt;
-  @media (max-width: ${mq.tablet}){
-    border-top: 1px solid #b6b7b7;
-    &:hover {
-      transition: 0.5s ease-in;
-      width: 100%;
-      border-top: none;
-      background-color: #b6b7b7
-    }
-    &:hover + li {
-      transition: 0.5s ease-in;
-      border-top: none;
-    }
-    &:last-child{
-      padding-bottom: 5pt;
-    }
-  }
-  @media (min-width: ${mq.tablet}){
-    margin-left: 15pt;
-    height: auto;
   }
 `;
 
