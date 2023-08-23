@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 
 export const Row = styled.tr`
   background-color: gray;
+  height: 3em;
   tbody > &:nth-of-type(odd) {
     background-color: lightgray;
   }

@@ -6,6 +6,7 @@ import CONSTANTS from "../../constants";
 import { TaskType } from "../../types/TaskType";
 import TaskItem from "../TaskItem/TaskItem";
 import NoTasks from "../NoTasks/NoTasks";
+import AddTaskBar from "../AddTaskBar/AddTaskBar";
 
 const TaskList = () => {
   const [lists, setLists] = useState<Array<string>>([]);
@@ -75,6 +76,7 @@ const TaskList = () => {
               {taskList.map((task: TaskType, index: number) => <TaskItem key={index} item={task} />)}
             </tbody>
           </ListTable>}
+          <AddTaskBar />
       </ListItemSection>
     </TaskContainer>
   )
